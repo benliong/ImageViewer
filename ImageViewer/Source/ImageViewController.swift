@@ -180,14 +180,11 @@ final class ImageViewController: UIViewController, UIScrollViewDelegate, UIGestu
         
         activityIndicatorView.stopAnimating()
         
-        if imageView.image == nil {
-            
-            scrollView.zoomScale = minimumZoomScale
-            let aspectFitSize = aspectFitContentSize(forBoundingSize: rotationAdjustedBounds().size, contentSize: image.size)
-            imageView.frame.size = aspectFitSize
-            self.scrollView.contentSize = aspectFitSize
-            imageView.center = scrollView.boundsCenter
-        }
+        scrollView.zoomScale = minimumZoomScale
+        let aspectFitSize = aspectFitContentSize(forBoundingSize: rotationAdjustedBounds().size, contentSize: image.size)
+        imageView.frame.size = aspectFitSize
+        self.scrollView.contentSize = aspectFitSize
+        imageView.center = scrollView.boundsCenter
         
         if let handler = fadeInHandler where handler.wasPresented(self.index) == false {
             
